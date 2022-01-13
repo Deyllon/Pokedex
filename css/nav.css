@@ -1,0 +1,20 @@
+.conteiner_lista{
+    position: absolute;
+    height: 4rem;
+    background-color: #D4D1D2;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.conteiner_lista__link{
+    margin-left: 5rem;
+    margin-right: 5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: black;
+}
+.conteiner_lista__conteudo{  
+    font-weight: bold;
+    font-size: 1.5rem;
+}

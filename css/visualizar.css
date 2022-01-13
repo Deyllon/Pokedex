@@ -1,0 +1,25 @@
+.conteiner_pokemon{
+    display: flex;
+    flex-direction: column;
+}
+.conteiner_pokemon__pokemon{
+    margin: auto;
+    border: solid 1px;
+    border-radius: 15px;
+    margin-top: 5rem;
+    background-color: #F8D7D0;
+    width: 20rem;
+}
+.conteiner_pokemon__pokemon--imagem{
+    margin-top: 1rem;
+    margin-left: 6rem;
+    width: 8rem;
+    height: 8rem;
+    margin-bottom: 1rem;
+}
+.conteiner_pokemon__pokemon--conteudo{
+    margin-left: 6rem;
+    font-weight: bold;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+}
