@@ -1,0 +1,45 @@
+.div_buscar{
+    display: flex;
+}
+
+.buscar{
+    margin-top: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 1px;
+    height: 3rem;
+    width: 45rem;
+    background-color: #F8D7D0;
+}
+
+.buscar--label{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-weight: bold;
+}
+.buscar--input{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    width: 15rem;
+    font-weight: bold;
+    border: none;
+}
+
+.buscar--button{
+    margin-left: 1rem;
+    width: 5rem;
+    border: solid 1px;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+.buscar--button:hover{
+    cursor: pointer;
+    background-color: black;
+    color: #D4D1D2;
+}
+
+input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}

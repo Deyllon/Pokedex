@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/visualizar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="conteiner_lista">
+                <a href="{% url 'criarpokemon' %}" class="conteiner_lista__link"><li class="conteiner_lista__conteudo">Criar pokemon</li></a>
+                <a href="{% url 'visualizar_pokemon' %}" class="conteiner_lista__link"><li class="conteiner_lista__conteudo">Pokemons</li></a>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% if pokemon %}
+            {% for poke in pokemon %}
+                <div class="conteiner_pokemon">
+                    <div class="conteiner_pokemon__pokemon">
+                        <img class="conteiner_pokemon__pokemon--imagem" src="{{poke.foto_pokemon}}" alt="imagem do pokemon">
+                        <h2 class="conteiner_pokemon__pokemon--conteudo">Nome: <br> {{poke.nome}}</h2>
+                        <p class="conteiner_pokemon__pokemon--conteudo">Pokedex: <br>{{poke.numero_pokedex}} </p>
+                        <p class="conteiner_pokemon__pokemon--conteudo">habilidades: <br>{{poke.habilidade1}}  <br>{{poke.habilidade2}} </p>
+                        <p class="conteiner_pokemon__pokemon--conteudo">altura: <br>{{poke.altura}} metros </p>
+                        <p class="conteiner_pokemon__pokemon--conteudo">status: <br> {{poke.status_hp}} <br>{{poke.status_ataque}}   <br>{{poke.status_defesa}}  <br> {{poke.status_ataque_especial}} <br>{{poke.status_defesa_especial}}  <br> {{poke.status_velocidade}}</p>
+                        <p class="conteiner_pokemon__pokemon--conteudo">tipo: <br> {{poke.tipo1}} <br> {{poke.tipo2}} </p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </main>
+</body>
+</html>
