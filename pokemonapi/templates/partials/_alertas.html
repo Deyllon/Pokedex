@@ -1,0 +1,10 @@
+{% load static %}
+{% if messages %}
+    {% for message in messages %}
+        <div class="alerta">
+            <div class="alerta__div" role="alert">
+                {{message}}
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}

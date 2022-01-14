@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import get_object_or_404, render, redirect
 
 from .api.pokeapi import poke_api
@@ -9,7 +10,12 @@ def criarpokemon(request):
     if request.method == 'POST':
         pokemonstrinhos = request.POST['pokemonzinho']
         poke_api(pokemonstrinhos)
-        return redirect('visualizar_pokemon')
+        if not Pokemon.objects.filter(nome=pokemonstrinhos).exists():
+            messages.error(request, 'O pokemon não existe')
+            return redirect('criarpokemon')
+        if Pokemon.objects.filter(nome=pokemonstrinhos).exists():
+            messages.success(request, 'O pokemon foi criado com sucesso')
+            return redirect('visualizar_pokemon')            
     return render(request, 'criarpokemon.html')
 
 def buscar(request):
@@ -21,7 +27,7 @@ def buscar(request):
     dados = {
         'pokemon': lista_a_buscar
     }
-    return render(request, 'visualizar_apenas_pokemon.html', dados)
+    return render(request, 'busca.html', dados)
 
         
 def visualizar_pokemon(request):
@@ -30,3 +36,10 @@ def visualizar_pokemon(request):
         'pokemon' : pokemon
     }
     return render(request, 'visualizar_pokemon.html', conteudo)
+
+def visualizar_apenas_pokemon(request, slug):
+    pokemonstro = get_object_or_404(Pokemon, slug=slug)
+    visualizar_pokemon = {
+        'poke' : pokemonstro
+    }
+    return render(request, 'visualizar_apenas_pokemon.html', visualizar_pokemon)

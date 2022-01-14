@@ -1,0 +1,17 @@
+.alerta{
+    display: flex;
+}
+
+.alerta__div{
+    margin-left: auto;
+    margin-top: 5rem;
+    margin-right: auto;
+    font-size: 2rem;
+    font-weight: bold;
+    border: solid 1px;
+    width: 40rem;
+    text-align: center;
+    border-radius: 15px;
+    background-color: #F8D7D0;
+    overflow: hidden;
+}

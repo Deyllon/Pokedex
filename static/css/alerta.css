@@ -1,0 +1,11 @@
+.alerta{
+    display: flex;
+}
+
+.alerta__div{
+    margin-left: auto;
+    margin-top: 5rem;
+    margin-right: auto;
+    font-size: 2rem;
+    font-weight: bold;
+}

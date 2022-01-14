@@ -1,3 +1,7 @@
+from msilib.schema import Error
+from django.contrib import messages
+
+
 import requests
 from pokemonapi.models import Pokemon
 from django.shortcuts import render, redirect
@@ -75,7 +79,9 @@ def tipo(pokemon):
         
         
         
-def poke_api(pokemon):
+def poke_api( pokemon):
+    global erro
+    
     url = f'https://pokeapi.co/api/v2/pokemon/{pokemon}'
     res = requests.get(url)
     status = res.status_code
@@ -88,6 +94,10 @@ def poke_api(pokemon):
         altura(pokemon)
         statisticas(pokemon)
         tipo(pokemon)
+        if Pokemon.objects.filter(nome=nome).exists():
+
+            return redirect('visualizar_pokemon')
+        
         pokemonstros = Pokemon.objects.create(foto_pokemon=foto_do_pokemon, nome=nome, slug=nome, numero_pokedex=pokedex_do_jogo,
                                               habilidade1=habilidade0, habilidade2= habilidade1, altura=altura_pokemon,
                                               status_hp=statistica0, status_ataque=statistica1,status_defesa=statistica2,
@@ -96,7 +106,4 @@ def poke_api(pokemon):
         pokemonstros.save()
         
         
-    else:
-        print('codigo errado')
-
-
+    

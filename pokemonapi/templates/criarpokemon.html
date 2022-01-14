@@ -1,24 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends 'base.html' %}
 {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
-    <link rel="stylesheet" href="{% static 'css/formulario.css' %}">
-    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
-</head>
-<body>
-    <header>
-        <nav>
-            <ul class="conteiner_lista">
-                <a href="{% url 'criarpokemon' %}" class="conteiner_lista__link"><li class="conteiner_lista__conteudo">Criar pokemon</li></a>
-                <a href="{% url 'visualizar_pokemon' %}" class="conteiner_lista__link"><li class="conteiner_lista__conteudo">Pokemons</li></a>
-            </ul>
-        </nav>
-    </header>
+{% block content %}
+    {% include 'partials/_nav.html' %}  
     <main>
+        {% include 'partials/_alertas.html' %}
         <div class="div">
             <form action="{% url 'criarpokemon' %}" class="formulario" method="post"> {% csrf_token %}
                 <label class="formulario--label" for="">Digite o nome do pokemon: </label>
@@ -27,4 +12,4 @@
             </form>
         </div>
     </main>
-</body>
+{% endblock %}
