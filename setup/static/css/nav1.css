@@ -1,5 +1,5 @@
 .conteiner_lista{
-    position: absolute;
+    position: fixed;
     height: 4rem;
     background-color: #D4D1D2;
     display: flex;

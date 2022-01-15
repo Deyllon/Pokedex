@@ -1,3 +1,4 @@
+from email import message
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, render, redirect
 
@@ -9,6 +10,9 @@ from .models import Pokemon
 def criarpokemon(request):
     if request.method == 'POST':
         pokemonstrinhos = request.POST['pokemonzinho']
+        if Pokemon.objects.filter(nome=pokemonstrinhos).exists():
+            messages.error(request, 'O pokemon já existe no banco de dados')
+            return redirect('visualizar_pokemon')
         poke_api(pokemonstrinhos)
         if not Pokemon.objects.filter(nome=pokemonstrinhos).exists():
             messages.error(request, 'O pokemon não existe')
